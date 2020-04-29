@@ -1,0 +1,136 @@
+Statistical profiling result from isolate-0x1028c4000-17743-v8.log, (2862 ticks, 0 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+     94    3.3%          /usr/lib/system/libsystem_platform.dylib
+      1    0.0%          /usr/lib/system/libsystem_pthread.dylib
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+     14    0.5%    0.5%  LazyCompile: *doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+      3    0.1%    0.1%  LazyCompile: *<anonymous> /Users/skonishi/work/node-performance/lib/tokenComparator.js:92:25
+
+ [C++]:
+   ticks  total  nonlib   name
+   2702   94.4%   97.7%  t __ZN2v88internalL60Builtin_Impl_Stats_CallSitePrototypeGetScriptNameOrSourceURLEiPmPNS0_7IsolateE
+     14    0.5%    0.5%  T node::native_module::NativeModuleEnv::CompileFunction(v8::FunctionCallbackInfo<v8::Value> const&)
+     11    0.4%    0.4%  T _vm_copy
+      7    0.2%    0.3%  t __platform_memmove$VARIANT$Haswell
+      1    0.0%    0.0%  t node::fs::LStat(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  t _tiny_free_list_add_ptr
+      1    0.0%    0.0%  t _free_tiny
+      1    0.0%    0.0%  t _free_small
+      1    0.0%    0.0%  t ___vfprintf
+      1    0.0%    0.0%  t __ZN2v88internal12StringHasher20HashSequentialStringIhEEjPKT_iy
+      1    0.0%    0.0%  T node::fs::NewFSReqCallback(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T node::TTYWrap::New(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    0.0%    0.0%  T _task_policy_set
+      1    0.0%    0.0%  T _read$NOCANCEL
+      1    0.0%    0.0%  T _malloc_zone_malloc
+      1    0.0%    0.0%  T _kdebug_typefilter
+      1    0.0%    0.0%  T _inet_net_pton
+      1    0.0%    0.0%  T ___ulock_wait
+      1    0.0%    0.0%  T ___sflags
+      1    0.0%    0.0%  T __ZNK2v88internal8Variable22IsGlobalObjectPropertyEv
+
+ [Summary]:
+   ticks  total  nonlib   name
+     17    0.6%    0.6%  JavaScript
+   2750   96.1%   99.4%  C++
+      9    0.3%    0.3%  GC
+     95    3.3%          Shared libraries
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+   2804   99.4%   98.0%  t __ZN2v88internalL60Builtin_Impl_Stats_CallSitePrototypeGetScriptNameOrSourceURLEiPmPNS0_7IsolateE
+     17    0.6%    0.6%  T __ZN2v88internal21Builtin_HandleApiCallEiPmPNS0_7IsolateE
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 1.0% are not shown.
+
+   ticks parent  name
+   2702   94.4%  t __ZN2v88internalL60Builtin_Impl_Stats_CallSitePrototypeGetScriptNameOrSourceURLEiPmPNS0_7IsolateE
+   2649   98.0%    LazyCompile: *<anonymous> /Users/skonishi/work/node-performance/lib/tokenComparator.js:92:25
+   2649  100.0%      LazyCompile: *doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+   2244   84.7%        LazyCompile: *emit events.js:160:44
+   2244  100.0%          LazyCompile: ~emitReadable_ _stream_readable.js:570:23
+   2244  100.0%            LazyCompile: ~processTicksAndRejections internal/process/task_queues.js:65:35
+    405   15.3%        LazyCompile: ~emit events.js:160:44
+    405  100.0%          LazyCompile: ~emitReadable_ _stream_readable.js:570:23
+    405  100.0%            LazyCompile: ~processTicksAndRejections internal/process/task_queues.js:65:35
+     28    1.0%    t __ZN2v88internalL60Builtin_Impl_Stats_CallSitePrototypeGetScriptNameOrSourceURLEiPmPNS0_7IsolateE
+      7   25.0%      LazyCompile: ~doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+      7  100.0%        LazyCompile: ~emit events.js:160:44
+      7  100.0%          LazyCompile: ~emitReadable_ _stream_readable.js:570:23
+      7  100.0%            LazyCompile: ~processTicksAndRejections internal/process/task_queues.js:65:35
+      7   25.0%      LazyCompile: *<anonymous> /Users/skonishi/work/node-performance/lib/tokenComparator.js:92:25
+      7  100.0%        LazyCompile: *doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+      4   57.1%          LazyCompile: *emit events.js:160:44
+      4  100.0%            LazyCompile: ~emitReadable_ _stream_readable.js:570:23
+      3   42.9%          LazyCompile: ~emit events.js:160:44
+      3  100.0%            LazyCompile: ~emitReadable_ _stream_readable.js:570:23
+      2    7.1%      t __ZN2v88internalL60Builtin_Impl_Stats_CallSitePrototypeGetScriptNameOrSourceURLEiPmPNS0_7IsolateE
+      2  100.0%        LazyCompile: *<anonymous> /Users/skonishi/work/node-performance/lib/tokenComparator.js:92:25
+      2  100.0%          LazyCompile: *doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+      2  100.0%            LazyCompile: *emit events.js:160:44
+      2    7.1%      LazyCompile: *emit events.js:160:44
+      2  100.0%        LazyCompile: ~emitReadable_ _stream_readable.js:570:23
+      2  100.0%          LazyCompile: ~processTicksAndRejections internal/process/task_queues.js:65:35
+      1    3.6%      LazyCompile: ~readFileSync fs.js:339:22
+      1  100.0%        LazyCompile: ~Module._extensions..js internal/modules/cjs/loader.js:965:37
+      1  100.0%          LazyCompile: ~Module.load internal/modules/cjs/loader.js:804:33
+      1  100.0%            LazyCompile: ~Module._load internal/modules/cjs/loader.js:668:24
+      1    3.6%      LazyCompile: ~makeNodeErrorWithCode internal/errors.js:212:31
+      1  100.0%        LazyCompile: ~E internal/errors.js:286:11
+      1  100.0%          Eval: ~<anonymous> internal/errors.js:1:1
+      1  100.0%            LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:272:42
+      1    3.6%      LazyCompile: ~lazyLoadStreams fs.js:1793:25
+      1  100.0%        LazyCompile: ~createReadStream fs.js:1800:26
+      1  100.0%          LazyCompile: ~<anonymous> /Users/skonishi/work/node-performance/lib/tokenComparator.js:34:24
+      1  100.0%            t __ZN2v88internalL60Builtin_Impl_Stats_CallSitePrototypeGetScriptNameOrSourceURLEiPmPNS0_7IsolateE
+      1    3.6%      LazyCompile: ~emit events.js:160:44
+      1  100.0%        LazyCompile: ~doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+      1  100.0%          LazyCompile: ~emit events.js:160:44
+      1  100.0%            LazyCompile: ~emitReadable_ _stream_readable.js:570:23
+      1    3.6%      LazyCompile: ~Writable.write _stream_writable.js:278:36
+      1  100.0%        LazyCompile: ~Console.<computed> internal/console/constructor.js:210:46
+      1  100.0%          LazyCompile: ~log internal/console/constructor.js:281:6
+      1  100.0%            t node::inspector::(anonymous namespace)::InspectorConsoleCall(v8::FunctionCallbackInfo<v8::Value> const&)
+      1    3.6%      LazyCompile: ~<anonymous> /Users/skonishi/work/node-performance/lib/tokenComparator.js:97:25
+      1  100.0%        LazyCompile: ~emit events.js:160:44
+      1  100.0%          LazyCompile: ~<anonymous> /Users/skonishi/work/node-performance/lib/readtoken.js:19:22
+      1  100.0%            LazyCompile: ~emit events.js:160:44
+      1    3.6%      LazyCompile: *<anonymous> /Users/skonishi/work/node-performance/lib/tokenComparator.js:87:25
+      1  100.0%        LazyCompile: *doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+      1  100.0%          LazyCompile: *emit events.js:160:44
+      1  100.0%            LazyCompile: ~emitReadable_ _stream_readable.js:570:23
+      1    3.6%      Eval: ~<anonymous> internal/encoding.js:1:1
+      1  100.0%        LazyCompile: ~NativeModule.compile internal/bootstrap/loaders.js:272:42
+      1  100.0%          LazyCompile: ~nativeModuleRequire internal/bootstrap/loaders.js:183:29
+      1  100.0%            Eval: ~<anonymous> internal/bootstrap/node.js:1:1
+      1    3.6%      Eval: ~<anonymous> internal/bootstrap/node.js:1:1
+      1    3.6%      Eval: ~<anonymous> internal/bootstrap/loaders.js:1:1
+
+     94    3.3%  /usr/lib/system/libsystem_platform.dylib
+     92   97.9%    t __ZN2v88internalL60Builtin_Impl_Stats_CallSitePrototypeGetScriptNameOrSourceURLEiPmPNS0_7IsolateE
+     75   81.5%      LazyCompile: *<anonymous> /Users/skonishi/work/node-performance/lib/tokenComparator.js:92:25
+     75  100.0%        LazyCompile: *doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+     69   92.0%          LazyCompile: *emit events.js:160:44
+     69  100.0%            LazyCompile: ~emitReadable_ _stream_readable.js:570:23
+      6    8.0%          LazyCompile: ~emit events.js:160:44
+      6  100.0%            LazyCompile: ~emitReadable_ _stream_readable.js:570:23
+     10   10.9%      LazyCompile: ~fireCompare /Users/skonishi/work/node-performance/lib/tokenComparator.js:36:29
+     10  100.0%        LazyCompile: ~<anonymous> /Users/skonishi/work/node-performance/lib/tokenComparator.js:92:25
+      5   50.0%          LazyCompile: ~emit events.js:160:44
+      5  100.0%            LazyCompile: ~doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+      5   50.0%          LazyCompile: *emit events.js:160:44
+      5  100.0%            LazyCompile: ~doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+      7    7.6%      LazyCompile: *fireCompare /Users/skonishi/work/node-performance/lib/tokenComparator.js:36:29
+      7  100.0%        LazyCompile: ~<anonymous> /Users/skonishi/work/node-performance/lib/tokenComparator.js:92:25
+      4   57.1%          LazyCompile: *doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+      4  100.0%            LazyCompile: ~emit events.js:160:44
+      3   42.9%          LazyCompile: *emit events.js:160:44
+      3  100.0%            LazyCompile: ~doRead /Users/skonishi/work/node-performance/lib/readtoken.js:44:9
+
